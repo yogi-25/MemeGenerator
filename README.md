@@ -51,7 +51,7 @@ Back-End - Node.js, Express.js & MongoDB
 
 
 ## Output
-![Screenshot__73_](/uploads/d0d7e13f8e422005be353b44159db107/Screenshot__73_.png)
+![Screenshot (73)](https://user-images.githubusercontent.com/55496505/108880886-bc9b5d00-7628-11eb-8504-b3f08c9c1c7a.png)
 
 
 
