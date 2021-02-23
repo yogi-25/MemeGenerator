@@ -13,7 +13,10 @@ app.use(cors());
 
 app.use('/memes', postRoutes);
 //const mongoose = require('mongoose'); 
-const CONNECTION_URL = 'mongodb://localhost/memdata';
+app.get('/',(req,res) => {
+  res.send("Hello to meme stream");
+});
+const CONNECTION_URL = 'mongodb+srv://yogi-25:Idea12345@cluster0.fs8vy.mongodb.net/<dbname>?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })

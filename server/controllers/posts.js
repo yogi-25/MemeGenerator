@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { request } from 'express';
 import mongoose from 'mongoose';
 
 import PostMessage from '../models/postMessage.js';
@@ -7,7 +7,7 @@ const router = express.Router();
 
 export const getPosts = async (req, res) => { 
     try {
-        const postMessages = await PostMessage.find();
+        const postMessages = await PostMessage.find().sort({_id:-1}).limit(100);
                 
         res.status(200).json(postMessages);
     } catch (error) {
@@ -30,8 +30,11 @@ export const getPost = async (req, res) => {
 
 export const createPost = async (req, res) => {
     const { caption, url, name, tags } = req.body;
-
-    const newPostMessage = new PostMessage({ caption, url, name, tags })
+     
+    const newPostMessage = new PostMessage({ caption : req.body.caption,
+        url: req.body.url,
+        name: req.body.name,
+        tags: req.body.tags, })
 
     try {
         await newPostMessage.save();
